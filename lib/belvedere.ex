@@ -1,0 +1,2 @@
+defmodule Belvedere do
+end
