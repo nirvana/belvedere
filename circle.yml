@@ -1,6 +1,6 @@
 dependencies:
   pre:
-    - scripts/ci/prepare.sh
+    - bash ./scripts/ci/prepare.sh
   cache_directories:
     - ~/dependencies
     - ~/.mix
@@ -9,6 +9,6 @@ dependencies:
 
 test:
   override:
-    - scripts/ci/test.sh
+    - bash ./scripts/ci/test.sh
 
 # https://www.erlang.org/download/otp_src_17.5.tar.gz
