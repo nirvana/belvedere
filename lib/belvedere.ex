@@ -1,4 +1,10 @@
 defmodule Belvedere do
+  @moduledoc """
+   Belvedere is an example for continuous integration using CircleCI
+
+   The two methods below have doctests.  Change the ! to a ? in the string for
+   welcome(name) to make the tests fail.  (and see what happens with your CI)
+   """
 
   @doc ~S"""
   Composes a personalized welcome.
@@ -23,7 +29,7 @@ defmodule Belvedere do
 
   """
   def welcome(name) do
-    "Hello #{name}?"   # There's a bug here to test the test.
+    "Hello #{name}!"   # There's a bug here to test the test.
   end
 
 end
