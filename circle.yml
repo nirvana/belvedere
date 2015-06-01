@@ -10,5 +10,3 @@ dependencies:
 test:
   override:
     - bash ./scripts/ci/test.sh
-
-# https://www.erlang.org/download/otp_src_17.5.tar.gz

@@ -1,22 +1,29 @@
 # belvedere
 A process which shuffles your code around until you have the result you want.
 
+### To Do:
+1. Make this a docker container and get it building on CircleCI
+2. Break out the build phase so that deps get updated when they change.
 
-## CHALLENGE
+## HowTo
 
-Figure out how to do continuous integration with elixir projects.
+This repo demos using CircleCI for an elixir project.
 
-Would like a build system that will pull the latest nirvana (but use any
-elixir project right now), build it, run tests, and then for special bonus
-points, email the results. 
+Getting this going in your project:
 
-Basically something to facillitate continuous integration.
+1. Copy the scripts/ci folder to your project.
+2. Copy the circle.yml file to your project
+2. Update the Erlang and Elixir versions to the latest in the scripts
+3. Add the repo to CircleCI so that the webhook is installed
+4. Viola, that should be it.  
 
-Ideally it has a webhook that will plug into github
 
-This project could be as simple as figuring out (And documenting!) how to do
-this with TravisCI.  CircleCI or Wercker can work.  Any CI system.  Would
-like to stay away from Jenkins or anytthing too heavy weight or complicated
-to set up. 
+### How it works
 
-I've been told that http://codeship.com is a good choice.  (But not specifically about using it for elixir.)
+The heavy lifting is done in two scripts:
+scripts/ci/prepare.sh - Installs Erlang and Elixir, builds the code
+scripts/ci/test.sh - Runs the tests
+
+circle.yml - caches build products and deps (which might be bad) so that
+your builds will be faster. (building erlang from source by itself
+takes quite awhile.)
