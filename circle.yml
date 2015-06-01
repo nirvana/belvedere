@@ -1,0 +1,14 @@
+dependencies:
+  pre:
+    - bash ./scripts/ci/prepare.sh
+  cache_directories:
+    - ~/dependencies
+    - ~/.mix
+    - _build
+    - deps
+
+test:
+  override:
+    - bash ./scripts/ci/test.sh
+
+# https://www.erlang.org/download/otp_src_17.5.tar.gz

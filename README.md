@@ -18,3 +18,5 @@ This project could be as simple as figuring out (And documenting!) how to do
 this with TravisCI.  CircleCI or Wercker can work.  Any CI system.  Would
 like to stay away from Jenkins or anytthing too heavy weight or complicated
 to set up. 
+
+I've been told that http://codeship.com is a good choice.  (But not specifically about using it for elixir.)
