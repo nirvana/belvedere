@@ -1,7 +1,6 @@
 
 set -e
 
-export CIRCLE_PROJECT_REPONAME="belvedere" # name this your project
 export ERLANG_VERSION="17.5"
 export ELIXIR_VERSION="v1.0.4"
 
