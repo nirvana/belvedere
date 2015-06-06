@@ -46,7 +46,7 @@ if [ ! -e $ELIXIR_PATH/bin/elixir ]; then
   ln -sf $ELIXIR_PATH $INSTALL_PATH/elixir
 fi
 
-export PATH="$ERLANG_PATH/bin:$PATH"
+export PATH="$ERLANG_PATH/bin:$ELIXIR_PATH/bin:$PATH"
 
 # Install dialyxir
 if [ ! -e $DIALYZER_PATH/bin/elixir ]; then
@@ -60,7 +60,6 @@ if [ ! -e $DIALYZER_PATH/bin/elixir ]; then
   ln -sf $DIALYZER_PATH $INSTALL_PATH/dialyxir
 fi
 
-export PATH="$ERLANG_PATH/bin:$ELIXIR_PATH/bin:$PATH"
 
 # Install package tools
 if [ ! -e $HOME/.mix/rebar ]; then
