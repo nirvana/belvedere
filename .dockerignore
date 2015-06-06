@@ -1,4 +1,2 @@
 .gitignore
-LICENSE
-README.md
-Dockerfile
+.git
