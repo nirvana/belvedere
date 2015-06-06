@@ -1,7 +1,8 @@
 # belvedere
 [![Circle CI](https://circleci.com/gh/realmlabs/belvedere.svg?style=shield)](https://circleci.com/gh/realmlabs/belvedere)
 
-This project exists as an example for continuous integration of Elixir on CircleCI.
+This project exists as an example for continuous integration of Elixir on CircleCI.  
+It also works as a bit of a boilerplate project.
 
 ## Features:
   - Builds your project as a docker container, and automatically pushes it to dockerhub if tests pass
@@ -34,3 +35,8 @@ Getting this going in your project:
   * [The CircleCI Docker docs](https://circleci.com/docs/docker)
   * [The Docker userguide](http://docs.docker.com/userguide/)
   * [Docker Hub](https://hub.docker.com/)
+
+### To Do:
+  - Add publishing to hex.docs: https://hex.pm/docs/tasks#hex_docs
+  https://github.com/elixir-lang/ex_doc
+  - Add publishing to hex: https://hex.pm/docs/tasks#hex_publish
