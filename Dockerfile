@@ -30,5 +30,3 @@ RUN chmod 755 /root/belvedere/scripts/ci/test.sh
 
 RUN /root/belvedere/scripts/ci/prepare.sh
 RUN /root/belvedere/scripts/ci/build.sh
-
-CMD ["iex"]
