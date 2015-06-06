@@ -28,7 +28,8 @@ ADD . /root/belvedere
 WORKDIR /root/belvedere
 
 RUN chmod 755 /root/belvedere/scripts/ci/prepare.sh
+RUN chmod 755 /root/belvedere/scripts/ci/build.sh
 RUN chmod 755 /root/belvedere/scripts/ci/test.sh
 
 RUN /root/belvedere/scripts/ci/prepare.sh
-RUN /root/belvedere/scripts/ci/test.sh
+RUN /root/belvedere/scripts/ci/build.sh

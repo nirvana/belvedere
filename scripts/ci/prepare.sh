@@ -9,6 +9,7 @@ export INSTALL_PATH="$HOME/dependencies"
 
 export ERLANG_PATH="$INSTALL_PATH/otp_src_$ERLANG_VERSION"
 export ELIXIR_PATH="$INSTALL_PATH/elixir_$ELIXIR_VERSION"
+export DIALYZER_PATH="$INSTALL_PATH/dialyxir"
 
 mkdir -p $INSTALL_PATH
 cd $INSTALL_PATH
@@ -45,6 +46,20 @@ if [ ! -e $ELIXIR_PATH/bin/elixir ]; then
   ln -sf $ELIXIR_PATH $INSTALL_PATH/elixir
 fi
 
+export PATH="$ERLANG_PATH/bin:$PATH"
+
+# Install dialyxir
+if [ ! -e $DIALYZER_PATH/bin/elixir ]; then
+  git clone https://github.com/jeremyjh/dialyxir $DIALYZER_PATH
+  cd $DIALYZER_PATH
+  mix archive.build
+  mix archive.install
+  mix dialyzer.plt
+
+  # Symlink to make it easier to setup PATH to run tests
+  ln -sf $DIALYZER_PATH $INSTALL_PATH/dialyxir
+fi
+
 export PATH="$ERLANG_PATH/bin:$ELIXIR_PATH/bin:$PATH"
 
 # Install package tools
@@ -52,8 +67,3 @@ if [ ! -e $HOME/.mix/rebar ]; then
   yes Y | LC_ALL=en_GB.UTF-8 mix local.hex
   yes Y | LC_ALL=en_GB.UTF-8 mix local.rebar
 fi
-
-# Fetch and compile dependencies and application code (and include testing tools)
-export MIX_ENV="test"
-cd $HOME/$CIRCLE_PROJECT_REPONAME
-mix do deps.get, deps.compile, compile

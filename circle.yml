@@ -5,12 +5,27 @@ machine:
 dependencies:
   pre:
     - bash ./scripts/ci/prepare.sh
+
+  override:
+    - docker info
+    - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
+    - docker build -t nirvana/belvedere .
+    - mkdir -p ~/docker; docker save nirvana/belvedere > ~/docker/image.tar
+
   cache_directories:
+    - ~/docker
     - ~/dependencies
     - ~/.mix
     - _build
-    - deps
+    - ~/.dialyzer_core*
 
 test:
   override:
-    - bash ./scripts/ci/test.sh
+    - docker run nirvana/belvedere /root/belvedere/scripts/ci/test.sh
+
+deployment:
+  hub:
+    branch: master
+    commands:
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push nirvana/belvedere

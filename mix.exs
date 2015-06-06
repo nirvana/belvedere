@@ -5,7 +5,12 @@ defmodule Belvedere.Mixfile do
     [app: :belvedere,
      version: "0.0.1",
      elixir: "~> 1.0",
-     deps: deps]
+     deps: deps,
+     # Add the deps you care about here to be analyzed. (does slow things down)
+     dialyzer: [plt_apps: ["erts","kernel", "stdlib", "crypto", "public_key", "mnesia"],
+             flags: ["-Wunmatched_returns","-Werror_handling","-Wrace_conditions", "-Wno_opaque"],
+             paths: ["_build/dev/lib/my_app/ebin", "_build/dev/lib/foo/ebin"]]
+ ]]
   end
 
   # Configuration for the OTP application
