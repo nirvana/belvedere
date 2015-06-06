@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:trusty
 MAINTAINER Songge Chen <chen.s@wustl.edu>
 
 ENV project-name belvedere
@@ -8,8 +8,8 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
-RUN apt-get -y update && apt-get -y upgrade
-RUN apt-get -y install -y \ 
+RUN apt-get update && apt-get -y upgrade
+RUN apt-get install -y \
 curl \
 build-essential \
 libncurses5-dev \
