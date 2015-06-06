@@ -53,7 +53,7 @@ if [ ! -e $DIALYZER_PATH/bin/elixir ]; then
   git clone https://github.com/jeremyjh/dialyxir $DIALYZER_PATH
   cd $DIALYZER_PATH
   mix archive.build
-  mix archive.install
+  yes | mix archive.install
   mix dialyzer.plt
 
   # Symlink to make it easier to setup PATH to run tests

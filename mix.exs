@@ -10,7 +10,7 @@ defmodule Belvedere.Mixfile do
      dialyzer: [plt_apps: ["erts","kernel", "stdlib", "crypto", "public_key", "mnesia"],
              flags: ["-Wunmatched_returns","-Werror_handling","-Wrace_conditions", "-Wno_opaque"],
              paths: ["_build/dev/lib/my_app/ebin", "_build/dev/lib/foo/ebin"]]
- ]]
+    ]
   end
 
   # Configuration for the OTP application
