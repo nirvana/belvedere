@@ -23,7 +23,7 @@ dependencies:
 
 test:
   override:
-    - docker run $CONTAINER /bin/bash .//scripts/ci/test.sh
+    - docker run $CONTAINER /bin/bash ./scripts/ci/test.sh
 
 deployment:
   hub:
