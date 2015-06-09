@@ -28,17 +28,14 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
-
-
-
-ADD . /root/belvedere
-WORKDIR /root/belvedere
+ADD . /root/$CIRCLE_PROJECT_REPONAME
+WORKDIR /root/$CIRCLE_PROJECT_REPONAME
 
 RUN \ 
-    chmod 755 /root/belvedere/scripts/ci/prepare.sh && \
-    chmod 755 /root/belvedere/scripts/ci/build.sh && \
-    chmod 755 /root/belvedere/scripts/ci/test.sh
+    chmod 755 /root/$CIRCLE_PROJECT_REPONAME/scripts/ci/prepare.sh && \
+    chmod 755 /root/$CIRCLE_PROJECT_REPONAME/scripts/ci/build.sh && \
+    chmod 755 /root/$CIRCLE_PROJECT_REPONAME/scripts/ci/test.sh
 
 RUN \ 
-    /root/belvedere/scripts/ci/prepare.sh && \
-    /root/belvedere/scripts/ci/build.sh
+    /root/$CIRCLE_PROJECT_REPONAME/scripts/ci/prepare.sh && \
+    /root/$CIRCLE_PROJECT_REPONAME/scripts/ci/build.sh
