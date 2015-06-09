@@ -3,6 +3,7 @@ machine:
     - docker
   environment:
     CONTAINER: nirvana/belvedere
+    CIRCLE_PROJECT_REPONAME: belvedere
 
 dependencies:
 
