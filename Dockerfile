@@ -24,9 +24,11 @@ ENV LC_ALL en_US.UTF-8
 ADD . /root/belvedere
 WORKDIR /root/belvedere
 
-RUN chmod 755 /root/belvedere/scripts/ci/prepare.sh \
+RUN \ 
+    chmod 755 /root/belvedere/scripts/ci/prepare.sh \
     chmod 755 /root/belvedere/scripts/ci/build.sh \
     chmod 755 /root/belvedere/scripts/ci/test.sh
 
-RUN /root/belvedere/scripts/ci/prepare.sh \
+RUN \ 
+    /root/belvedere/scripts/ci/prepare.sh \
     /root/belvedere/scripts/ci/build.sh
