@@ -9,7 +9,7 @@ dependencies:
   override:
     - docker info
     - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
-    - docker build -t nirvana/belvedere .
+    - docker build -t $CONTAINER .
     - mkdir -p ~/docker; docker save $CONTAINER > ~/docker/image.tar
 
   cache_directories:
