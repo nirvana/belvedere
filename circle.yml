@@ -2,7 +2,7 @@ machine:
   services:
     - docker
   environment:
-    CONTAINER: "nirvana/belvedere"
+    CONTAINER: nirvana/belvedere
 
 dependencies:
 
