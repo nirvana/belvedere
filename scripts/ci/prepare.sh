@@ -1,8 +1,4 @@
-
 set -e
-
-export ERLANG_VERSION="17.5"
-export ELIXIR_VERSION="v1.0.4"
 
 export INSTALL_PATH="$HOME/dependencies"
 
