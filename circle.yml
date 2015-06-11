@@ -25,13 +25,10 @@ test:
     - docker run $CONTAINER /bin/bash ./scripts/ci/test.sh
 
 deployment:
-  hex.docs:
-    branch: master
-    commands:
-    - ./scripts/ci/publish_hex.sh
-  hub:
+  publish:
     branch: master
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker push $CONTAINER
+      - docker run $CONTAINER /bin/bash ./scripts/ci/publish_hex.sh
   
