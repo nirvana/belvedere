@@ -2,8 +2,12 @@ FROM ubuntu:trusty
 
 MAINTAINER Songge Chen <chen.s@wustl.edu>
 
-#Set Project Environment Variables
+#Set Your Environment Variables
 ENV CIRCLE_PROJECT_REPONAME belvedere
+ENV PROJECT_VERSION 0.0.1
+ENV PROJECT_MODULE belvedere
+ENV GITHUB_USER realmlabs
+ENV GITHUB_REPO belvedere
 ENV ERLANG_VERSION 17.5
 ENV ELIXIR_VERSION v1.0.4
 
