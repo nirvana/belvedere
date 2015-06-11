@@ -1,3 +1,5 @@
+export PATH="$HOME/dependencies/erlang/bin:$HOME/dependencies/elixir/bin:$PATH"
+
 #clone and compile ExDoc
 cd /$HOME/dependencies
 git clone https://github.com/elixir-lang/ex_doc.git
