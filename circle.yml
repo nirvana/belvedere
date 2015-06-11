@@ -33,4 +33,4 @@ deployment:
   hex.docs:
     branch: master
     commands:
-    - .scripts/ci/
+    - ./scripts/ci/publish_hex.sh
