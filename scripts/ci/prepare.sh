@@ -1,11 +1,5 @@
 set -e
 
-export INSTALL_PATH="$HOME/dependencies"
-
-export ERLANG_PATH="$INSTALL_PATH/otp_src_$ERLANG_VERSION"
-export ELIXIR_PATH="$INSTALL_PATH/elixir_$ELIXIR_VERSION"
-export DIALYZER_PATH="$INSTALL_PATH/dialyxir"
-
 mkdir -p $INSTALL_PATH
 cd $INSTALL_PATH
 
@@ -31,7 +25,6 @@ if [ ! -e $ERLANG_PATH/bin/erl ]; then
 fi
 
 # Install elixir
-export PATH="$ERLANG_PATH/bin:$PATH"
 
 if [ ! -e $ELIXIR_PATH/bin/elixir ]; then
   git clone https://github.com/elixir-lang/elixir $ELIXIR_PATH
@@ -43,7 +36,7 @@ if [ ! -e $ELIXIR_PATH/bin/elixir ]; then
   # Symlink to make it easier to setup PATH to run tests
   ln -sf $ELIXIR_PATH $INSTALL_PATH/elixir
 fi
-export PATH="$ERLANG_PATH/bin:$ELIXIR_PATH/bin:$PATH"
+
 elixir -v
 
 echo "Installing dialyxir... "
