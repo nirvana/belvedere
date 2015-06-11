@@ -36,9 +36,7 @@ ADD . /root/$CIRCLE_PROJECT_REPONAME
 WORKDIR /root/$CIRCLE_PROJECT_REPONAME
 
 RUN \ 
-    chmod 755 /root/$CIRCLE_PROJECT_REPONAME/scripts/ci/prepare.sh && \
-    chmod 755 /root/$CIRCLE_PROJECT_REPONAME/scripts/ci/build.sh && \
-    chmod 755 /root/$CIRCLE_PROJECT_REPONAME/scripts/ci/test.sh
+    chmod 755 /root/$CIRCLE_PROJECT_REPONAME/scripts/ci/*.sh
 
 RUN \ 
     /root/$CIRCLE_PROJECT_REPONAME/scripts/ci/prepare.sh && \
