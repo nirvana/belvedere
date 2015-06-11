@@ -9,5 +9,5 @@ mix do deps.get, compile
 cd /$HOME/$CIRCLE_PROJECT_REPONAME
 mix compile
 
-/$HOME/dependencies/ex_doc/bin/ex_doc $CIRCLE_PROJECT_REPONAME $PROJECT_VERSION path/to/project/ebin -m $PROJECT_MODULE -u https://github.com/$GITHUB_USER/$GITHUB_REPO
+/$HOME/dependencies/ex_doc/bin/ex_doc $CIRCLE_PROJECT_REPONAME $PROJECT_VERSION /$HOME/$CIRCLE_PROJECT_REPONAME/ebin -m $PROJECT_MODULE -u https://github.com/$GITHUB_USER/$GITHUB_REPO
 

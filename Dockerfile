@@ -21,9 +21,8 @@ ENV ELIXIR_PATH $INSTALL_PATH/elixir_$ELIXIR_VERSION
 ENV DIALYZER_PATH $INSTALL_PATH/dialyxir"
 
 ENV PATH $ERLANG_PATH/bin:$ELIXIR_PATH/bin:$PATH:$ERLANG_PATH/bin:$PATH
-RUN apt-get update
 
-RUN apt-get -y install \
+RUN apt-get update && apt-get install -y \
     curl \
     git \
     autoconf \
