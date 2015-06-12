@@ -11,13 +11,14 @@ if [ ! -e $ERLANG_PATH/bin/erl ]; then
   echo "Installing erlang... configure "
   ./configure --enable-smp-support \
               --enable-m64-build \
-              --disable-native-libs \
+              --enable-native-libs \
               --disable-sctp \
               --enable-threads \
               --enable-kernel-poll \
               --disable-hipe \
               --without-javac
   echo "Installing erlang...making "
+  export MAKEFLAGS=-j
   make
 
   # Symlink to make it easier to setup PATH to run tests

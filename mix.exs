@@ -4,6 +4,9 @@ defmodule Belvedere.Mixfile do
   def project do
     [app: :belvedere,
      version: "0.0.1",
+     name: "belvedere", 
+     source_url: "https://github.com/nirvana/belvedere",
+     homepage_url: "http://nirvana.io",
      elixir: "~> 1.0",
      description: "An example Elixir project with CircleCI, Docker, Dialyzer integration.",
      package: package,
@@ -40,9 +43,6 @@ defmodule Belvedere.Mixfile do
 
   defp package do
    [
-    name: "belvedere", 
-    source_url: "https://github.com/nirvana/belvedere",
-    homepage_url: "http://nirvana.io",
     files: ~w(lib mix.exs README.md LICENSE),
     contributors: ["Jay Prince", "The Nirvana Project Contributors"],
     licenses: ["MIT License"],
