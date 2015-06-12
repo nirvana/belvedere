@@ -33,11 +33,17 @@ defmodule Belvedere.Mixfile do
   # Type `mix help deps` for more examples and options
   defp deps do
     [
+      {:earmark, "~> 0.1", only: :dev},
+      {:ex_doc, "~> 0.7", only: :dev}
     ]
   end
 
   defp package do
-   [files: ~w(lib mix.exs README.md LICENSE),
+   [
+    name: "belvedere"
+    source_url:"https://github.com/nirvana/belvedere" 
+    homepage_url: "http://nirvana.io"
+    files: ~w(lib mix.exs README.md LICENSE),
     contributors: ["Jay Prince", "The Nirvana Project Contributors"],
     licenses: ["MIT License"],
     links: %{"GitHub" => "https://github.com/nirvana/belvedere",
