@@ -1,7 +1,7 @@
 cd /$HOME/dependencies
 git clone https://github.com/elixir-lang/ex_doc.git
 cd ex_doc
-mix do deps.get, compile
+mix do deps.get, deps.compile, compile
 
 cd /$HOME/$CIRCLE_PROJECT_REPONAME
 mix compile
