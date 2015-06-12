@@ -20,6 +20,7 @@ if [ ! -e $ERLANG_PATH/bin/erl ]; then
   echo "Installing erlang...making "
   export MAKEFLAGS=-j
   make
+  make install
 
   # Symlink to make it easier to setup PATH to run tests
   ln -sf $ERLANG_PATH $INSTALL_PATH/erlang
