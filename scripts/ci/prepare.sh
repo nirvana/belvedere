@@ -11,7 +11,7 @@ if [ ! -e $ERLANG_PATH/bin/erl ]; then
   echo "Installing erlang... configure "
   ./configure --enable-smp-support \
               --enable-m64-build \
-              --enable-native-libs \
+              --disable-native-libs \
               --disable-sctp \
               --enable-threads \
               --enable-kernel-poll \
