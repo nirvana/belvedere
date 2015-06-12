@@ -41,7 +41,7 @@ defmodule Belvedere.Mixfile do
   defp package do
    [
     name: "belvedere"
-    source_url:"https://github.com/nirvana/belvedere" 
+    source_url: "https://github.com/nirvana/belvedere" 
     homepage_url: "http://nirvana.io"
     files: ~w(lib mix.exs README.md LICENSE),
     contributors: ["Jay Prince", "The Nirvana Project Contributors"],
