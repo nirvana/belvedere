@@ -36,7 +36,6 @@ Getting this going in your project:
   * [The CircleCI Docker docs](https://circleci.com/docs/docker)
   * [The Docker userguide](http://docs.docker.com/userguide/)
   * [Docker Hub](https://hub.docker.com/)
-
 ### To Do:
   - Add publishing to hex.docs: https://hex.pm/docs/tasks#hex_docs
   https://github.com/elixir-lang/ex_doc
