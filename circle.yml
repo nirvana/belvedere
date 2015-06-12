@@ -30,5 +30,5 @@ deployment:
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker push $CONTAINER
-      - docker run $CONTAINER /bin/bash ./scripts/ci/publish_hex.sh
+      - docker run $CONTAINER /bin/bash mix docs
   
