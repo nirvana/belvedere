@@ -10,8 +10,9 @@ dependencies:
   override:
     - docker info
     - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
-    - docker build -t $CONTAINER .
-    - mkdir -p ~/docker; docker save $CONTAINER:$VERSION > ~/docker/image.tar
+    - CONTAINER_ID=$(docker build -t $CONTAINER .)
+    - docker tag $CONTAINER_ID $CONTAINER:$VERSION
+    - mkdir -p ~/docker; docker save $CONTAINER > ~/docker/image.tar
 
   cache_directories:
     - ~/docker
