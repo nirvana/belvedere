@@ -31,12 +31,18 @@ Getting this going in your project:
 
   Also note that the Docker Hub repository name and Docker registry endpoint are hard-coded into [circle.yml](circle.yml) and [.dockercfg.template](.dockercfg.template) respectively and would need to be changed to deploy to a different repository or registry.
 
+###Publish to Hex
+
+  - Pull your docker image and run it in a container. 
+  - Authorize your hex user with ```mix hex.user auth```
+  - Publish the module with ```mix hex.publish```
+  - Publish the docs with ```mix hex.docs```
+
   ##See also
   * [CircleCI Home](https://circleci.com)
   * [The CircleCI Docker docs](https://circleci.com/docs/docker)
   * [The Docker userguide](http://docs.docker.com/userguide/)
-  * [Docker Hub](https://hub.docker.com/)
-### To Do:
-  - Add publishing to hex.docs: https://hex.pm/docs/tasks#hex_docs
-  https://github.com/elixir-lang/ex_doc
-  - Add publishing to hex: https://hex.pm/docs/tasks#hex_publish
+  * [Docker Hub](https://hub.docker.com/)  
+  * [Hex.docs](https://hex.pm/docs/tasks#hex_docs)
+  * [ExDoc](https://github.com/elixir-lang/ex_doc)
+  * [Hex.publish](https://hex.pm/docs/tasks#hex_publish)
