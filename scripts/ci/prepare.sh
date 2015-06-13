@@ -20,7 +20,7 @@ if [ ! -e $ERLANG_PATH/bin/erl ]; then
   echo "Installing erlang...making "
   export MAKEFLAGS=-j
   make install
-  rm otp_src_$ERLANG_VERSION.tar.gz
+  rm $HOME/dependencies/otp_src_$ERLANG_VERSION.tar.gz
   
   # Symlink to make it easier to setup PATH to run tests
   ln -sf $ERLANG_PATH $INSTALL_PATH/erlang
