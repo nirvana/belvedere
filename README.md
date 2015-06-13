@@ -33,9 +33,11 @@ Getting this going in your project:
 
 ###Publish to Hex
 
-  - Pull your docker image and run it in a container. 
+  - Pull your docker image and run it in a container. e.g. 
+    ```docker pull nirvana/belvedere``` 
+    ```docker run -i -t CONTAINER_ID```
   - Authorize your hex user with ```mix hex.user auth```
-  - Publish the module with ```mix hex.publish```
+  - Publish the package with ```mix hex.publish```
   - Publish the docs with ```mix hex.docs```
 
   ##See also
