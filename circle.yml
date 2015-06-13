@@ -10,8 +10,7 @@ dependencies:
   override:
     - docker info
     - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
-    - CONTAINER_ID=$(docker build -t $CONTAINER .)
-    - docker tag $CONTAINER_ID $CONTAINER:$VERSION
+    - docker build -t $CONTAINER .
     - mkdir -p ~/docker; docker save $CONTAINER > ~/docker/image.tar
 
   cache_directories:
@@ -31,6 +30,6 @@ deployment:
     branch: master
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push $CONTAINER:$VERSION
+      - docker push $CONTAINER
       - docker run $CONTAINER /bin/bash ./scripts/ci/publish_hex.sh
   
