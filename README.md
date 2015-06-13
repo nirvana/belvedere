@@ -13,6 +13,7 @@ It also works as a bit of a boilerplate project.
 Getting this going in your project:
 
   - Copy the scripts/ci folder, circle.yml & Dockerfile to your project.
+  - add ```{:earmark, "~> 0.1", only: :dev}, {:ex_doc, "~> 0.7", only: :dev}``` to mix.exs deps
   - Update the Erlang and Elixir versions to the latest in the Dockerfile
   - Set CIRCLE_PROJECT_REPONAME in the Dockerfile to your project's name
   - Make changes to the Docker File as appropriate for your project
