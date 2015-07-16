@@ -15,6 +15,7 @@ defmodule Belvedere do
       "Hello Joe!"
 
   """
+  @spec greeting(String.t) :: String.t
   def greeting(name) do
     "Hello #{name}!"
   end
@@ -28,8 +29,9 @@ defmodule Belvedere do
       "Hello Joe!"
 
   """
+  @spec welcome(String.t) :: String.t
   def welcome(name) do
-    "Hello #{name}!"   # There's a bug here to test the test.
+    "Hello #{name}!"   # Make this a ? instead of ! so there's a bug here to test the test.
   end
 
 end

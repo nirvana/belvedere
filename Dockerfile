@@ -1,34 +1,38 @@
-FROM ubuntu
+FROM ubuntu:trusty
+
 MAINTAINER Songge Chen <chen.s@wustl.edu>
 
-ENV project-name belvedere
+#Set Your Environment Variables
+ENV CIRCLE_PROJECT_REPONAME belvedere
 
-RUN locale-gen en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
+ENV ERLANG_VERSION 17.5
+ENV ELIXIR_VERSION v1.0.4
 
-RUN apt-get -y update && apt-get -y upgrade
-RUN apt-get -y install -y \ 
-curl \
-build-essential \
-libncurses5-dev \
-git \
-fop \
-openjdk-6-jdk \
-libssl-dev \
-unixodbc-dev \
-g++ \
-libwxbase2.8 \
-libwxgtk2.8-dev \
-libgtk2.0-dev \
-libqt4-opengl-dev
+ENV MIX_ENV test
+ENV HOME /root
+ENV INSTALL_PATH $HOME/dependencies
 
-ADD . /root/belvedere
-WORKDIR /root/belvedere
+ENV ERLANG_PATH $INSTALL_PATH/otp_src_$ERLANG_VERSION
+ENV ELIXIR_PATH $INSTALL_PATH/elixir_$ELIXIR_VERSION
+ENV DIALYZER_PATH $INSTALL_PATH/dialyxir
 
-RUN chmod 755 /root/belvedere/scripts/ci/prepare.sh
-RUN chmod 755 /root/belvedere/scripts/ci/test.sh
+ENV PATH $ERLANG_PATH/bin:$ELIXIR_PATH/bin:$PATH:$ERLANG_PATH/bin:$PATH
 
-RUN /root/belvedere/scripts/ci/prepare.sh
-RUN /root/belvedere/scripts/ci/test.sh
+RUN apt-get update && apt-get install -y \
+    curl \
+    git \
+    autoconf \
+    libncurses-dev \
+    build-essential \ 
+    libssl-dev \
+    libcurl4-openssl-dev
+
+ADD . /root/$CIRCLE_PROJECT_REPONAME
+WORKDIR /root/$CIRCLE_PROJECT_REPONAME
+
+RUN \ 
+    chmod 755 /root/$CIRCLE_PROJECT_REPONAME/scripts/ci/*.sh
+
+RUN \ 
+    /root/$CIRCLE_PROJECT_REPONAME/scripts/ci/prepare.sh && \
+    /root/$CIRCLE_PROJECT_REPONAME/scripts/ci/build.sh

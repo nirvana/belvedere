@@ -1,16 +1,35 @@
 machine:
   services:
     - docker
+  environment:
+    CONTAINER: nirvana/belvedere
+    VERSION: 0.0.1
 
 dependencies:
-  pre:
-    - bash ./scripts/ci/prepare.sh
+
+  override:
+    - docker info
+    - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
+    - docker build -t $CONTAINER .
+    - mkdir -p ~/docker; docker save $CONTAINER > ~/docker/image.tar
+
   cache_directories:
+    - ~/docker
     - ~/dependencies
     - ~/.mix
     - _build
     - deps
+    - ~/.dialyzer_core*
 
 test:
   override:
-    - bash ./scripts/ci/test.sh
+    - docker run $CONTAINER /bin/bash ./scripts/ci/test.sh
+
+deployment:
+  publish:
+    branch: master
+    commands:
+      - docker run $CONTAINER /bin/bash ./scripts/ci/publish_hex.sh
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push $CONTAINER
+  
